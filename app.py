@@ -16,17 +16,18 @@ from dotenv import load_dotenv
 
 #side bar contents
 with st.sidebar:
-    st.title('🤗💬LLM Chat App')
+    st.title('🤗💬 LLM Chat App')
     st.markdown("""
     ## About
     This app is an LLM-powered chatbot built using:
     - [Streamlit](https://streamlit.io/)
     - [Langchain](https://python.langchian.com/)
     - [OpenAI](https://platform.openai.com/docs/models) LLM model
+    - [Github](https://github.com/praj2408/Langchain-PDF-App-GUI) Repository
                 
     """)
     add_vertical_space(5)
-    st.write("Mode with ❤️ by MrPark")
+    st.write("Made with ❤️ by Prajwal Krishna.")
     
     
 load_dotenv()
