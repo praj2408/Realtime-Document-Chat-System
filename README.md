@@ -1,1 +1,1 @@
-# Langchain-PDF-App-GUI-
+# Langchain-PDF-App-GUI
