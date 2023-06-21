@@ -1,12 +1,10 @@
 # Langchain-PDF-App-GUI
 
 ## Project Description: 
-PDF Querying Using LangChain
 
-## Overview:
 The project aims to develop a PDF querying system that leverages LangChain, a powerful language processing tool, to extract information from PDF documents. By employing LangChain's advanced natural language understanding capabilities, the system will enable users to perform complex searches and obtain specific data points from PDF files efficiently and accurately.
 
-# Website
+## Website
 ![](https://github.com/praj2408/Langchain-PDF-App-GUI/blob/main/images/ezgif.com-crop.gif)
 
 ## Features:
@@ -38,6 +36,63 @@ The project aims to develop a PDF querying system that leverages LangChain, a po
 
 4. Document Management: Organizations can use the system to organize and search through their extensive PDF document repositories, facilitating efficient document retrieval and reducing manual effort.
 
+## Model Information
+Generative Pre-trained Transformer 3.5 (GPT-3.5) is a sub class of GPT-3 Models created by OpenAI in 2022.
+
+You can use different models depending on the cost:
+
+ - gpt-3.5-turbo
+ - gpt-3.5-turbo-0301
+ - gpt-3.5-turbo-0613
+ - gpt-3.5-turbo-16k
+ - gpt-3.5-turbo-16k-0613
+
+
 ## Conclusion:
 
 By leveraging LangChain's powerful language processing capabilities, the PDF querying system described above aims to enhance the efficiency and accuracy of extracting information from PDF documents. It will empower users across various domains to perform complex searches, extract relevant data, and improve their overall productivity.
+
+
+## How to generate your own OpenAI API key
+
+Please watch this video:
+
+https://www.youtube.com/watch?v=nafDyRsVnXU&ab_channel=TutorialsHub
+
+## How to Run the project locally
+
+1. Clone the repository 
+```bash
+git clone https://github.com/url
+```
+
+2. Create a virtual environment 
+```bash
+conda create -n venv python==3.10 -y
+```
+
+3. Install the requirements
+```bash
+pip install -r requirements.txt
+```
+
+4. create .env file and paste the API key
+```bash
+OPENAI_API_KEY=YourAPIKey
+```
+
+5. Start the Streamlit server
+```bash
+streamlit run app.py
+```
+
+Enjoy the project.
+
+## Contributions
+Contributions to this project are welcome! To contribute, please follow the standard GitHub workflow for pull requests.
+
+## Contact information
+If you have any questions or comments about this project, feel free to contact the project maintainer at [Gmail](prajwalgbdr03@gmail.com)
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
