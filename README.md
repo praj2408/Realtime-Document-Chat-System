@@ -57,7 +57,7 @@ By leveraging LangChain's powerful language processing capabilities, the PDF que
 
 Please watch this video:
 
-https://www.youtube.com/watch?v=nafDyRsVnXU&ab_channel=TutorialsHub
+[How to Get Your OpenAI API Key](https://www.youtube.com/watch?v=nafDyRsVnXU&ab_channel=TutorialsHub)
 
 ## How to Run the project locally
 
