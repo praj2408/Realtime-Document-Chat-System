@@ -5,7 +5,8 @@
 The project aims to develop a PDF querying system that leverages LangChain, a powerful language processing tool, to extract information from PDF documents. By employing LangChain's advanced natural language understanding capabilities, the system will enable users to perform complex searches and obtain specific data points from PDF files efficiently and accurately.
 
 ## Website
-![](https://github.com/praj2408/Langchain-PDF-App-GUI/blob/main/images/ezgif.com-crop.gif)
+https://github.com/praj2408/Langchain-PDF-App-GUI/assets/70437673/6f1f0806-f6d5-416d-9f6a-5c5282db2769
+
 
 ## Features:
 1. PDF Parsing: The system will incorporate a PDF parsing module to extract text content from PDF files. It will handle various PDF formats, including scanned documents that have been OCR-processed, ensuring comprehensive data retrieval.
