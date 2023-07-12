@@ -22,9 +22,6 @@ The project aims to develop a PDF querying system that leverages LangChain, a po
 
 7. User-Friendly Interface: The system will provide a user-friendly web-based interface, enabling users to interact with the PDF querying system seamlessly. It will include features like search history, saved queries, and personalized settings for enhanced usability.
 
-8. Scalability and Performance: The system will be designed to handle large volumes of PDF files efficiently. It will employ optimized algorithms and scalable infrastructure to ensure quick response times, even when processing extensive collections of PDF documents.
-
-9. Security and Privacy: The system will prioritize security and privacy by implementing robust authentication mechanisms, access controls, and encryption protocols. It will adhere to industry best practices to safeguard sensitive data and ensure compliance with data protection regulations.
 
 ## Potential Use Cases:
 
