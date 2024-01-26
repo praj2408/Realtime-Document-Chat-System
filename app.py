@@ -27,7 +27,7 @@ with st.sidebar:
                 
     """)
     add_vertical_space(5)
-    st.write("Made by Tejaswini N R.")
+    st.write("Made by Prajwal Krishna.")
     
     
 load_dotenv()
