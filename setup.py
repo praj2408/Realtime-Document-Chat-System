@@ -18,10 +18,10 @@ def get_requirements(file_path:str)->List[str]:
     return requirements
 
 setup(
-    name='LangChain PDF App',
+    name='LangChain-PDF-App',
     version='0.0.1',
-    author='Tejaswini N R',
-    author_email='nrtejaswini25@gmail.com',
+    author='Prajwal Krishna',
+    author_email='prajwalgbdr03@mgmail.com',
     packages=find_packages(),
     install_requires=get_requirements('requirements.txt')
 
