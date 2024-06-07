@@ -18,77 +18,88 @@ from langchain.chains.qa_with_sources.loading import load_qa_with_sources_chain
 
 from dotenv import load_dotenv
 
+load_dotenv()
 
 text_splitter = RecursiveCharacterTextSplitter()
-llm = OpenAI(model="gpt-3.5")
+llm = OpenAI(model="gpt-4")
 embeddings = OpenAIEmbeddings()
 
 
 
-#side bar contents
-with st.sidebar:
-    st.title('🤗💬 LLM Chat App')
-    st.markdown("""
-    ## About
-    This app is an LLM-powered chatbot built using:
-    - [Streamlit](https://streamlit.io/)
-    - [Langchain](https://python.langchian.com/)
-    - [OpenAI](https://platform.openai.com/docs/models) LLM model
-    - [Github](https://github.com/praj2408/Langchain-PDF-App-GUI) Repository
-                
-    """)
-    
-    st.write("Made by Prajwal Krishna.")
-    
-    
-load_dotenv()
     
 def main():
-    st.header("Chat with PDF 💬")
-    
-    # upload a PDF file
-    pdf = st.file_uploader("Upload your PDF", type="pdf")
-    
-    #st.write(pdf)
-    
+    # Page configuration for better aesthetics
+    st.set_page_config(page_title="PDF Summarizer", layout="centered")
+
+    # Custom styles for a better-looking design with a centered logo and white background
+    st.markdown("""
+    <style>
+    /* Overall body style */
+    body {
+        background-color: white;  /* Ensuring the background is white */
+        margin: 0;
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+    /* Streamlit's automatic styling adjustments */
+    .css-18e3th9 {
+        padding: 0;
+    }
+    /* Centering the logo with adjustments for mobile responsiveness */
+    .logo-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 150px;  /* Adjust the width as necessary */
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    /* Streamlit components and widgets styling */
+    .stTextInput, .stButton, .stAlert {
+        margin: 10px 0;
+    }
+    .stTextInput input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .stButton > button {
+        width: 100%;
+        color: white;
+        background-color: #008CBA;
+    }
+    .stAlert {
+        border-radius: 5px;
+        background-color: #dbf0f7;
+    }
+    </style>
+    <img src="https://static.wixstatic.com/media/55efa7_41b05c38b58649d6bc98c14aa277a767~mv2.png/v1/fill/w_452,h_120,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/D2K%20Technologies_CMYK_PNG%20(1).png" class="logo-img">
+    """, unsafe_allow_html=True)
+
+    st.title("PDF Summarizer")
+
+    # File uploader for PDF
+    pdf = st.file_uploader("Upload your PDF", type=["pdf"], help="Select a PDF file to upload.")
+
     if pdf is not None:
         pdf_reader = PdfReader(pdf)
-        
         text = ""
         for page in pdf_reader.pages:
-            text += page.extract_text()
-            
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000, # it will divide the text into 800 chunk size each (800 tokens)
-            chunk_overlap=200,
-        )
-        chunks = text_splitter.split_text(text=text)
-        
-        
-        # st.write(chunks[1])
-        
+            text += page.extract_text() or ""
 
-        knowledge_base  = FAISS.from_texts(chunks, embeddings)
-            
-        
-        # Accept user questions/query
-        query = st.text_input("Ask your questions about your PDF file")
-        #st.write(query)
-        
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+        chunks = text_splitter.split_text(text=text)
+
+        knowledge_base = FAISS.from_texts(chunks, embedding=OpenAIEmbeddings())
+
+        query = st.text_input("Ask your questions about the PDF file", placeholder="Type your question here...")
+
         if query:
             docs = knowledge_base.similarity_search(query)
-
             llm = OpenAI()
-            chain = load_qa_chain(llm, chain_type="stuff")
+            chain = load_qa_chain(llm=llm, chain_type='stuff')
             response = chain.run(input_documents=docs, question=query)
-            
-            st.success(response)
-            
-            
 
-    
-    
-    
+            st.success(response)
+
 if __name__ == "__main__":
     main()
-    
